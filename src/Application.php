@@ -5,7 +5,7 @@ namespace Fin;
 use Fin\Plugins\PluginInterface;
 use Xtreamwayz\Pimple\Container;
 
-class Application 
+class Application
 {
     private $serviceContainer;
 
@@ -14,22 +14,22 @@ class Application
         $this->serviceContainer = new Container;
     }
 
-    public function service( $name )
+    public function service($name)
     {
         return $this->serviceContainer->get($name);
     }
 
-    public function addService(string $name, $service) : void
+    public function addService(string $name, $service): void
     {
-        if( is_callable($service) ){
+        if (is_callable($service)) {
             $this->serviceContainer->addLazy($name, $service);
-        }else{
+        } else {
             $this->serviceContainer->add($name, $service);
         }
     }
 
-    public function plugin(PluginInterface $plugin) : void
+    public function plugin(PluginInterface $plugin): void
     {
-        $plugin->register( $this->serviceContainer );
+        $plugin->register($this->serviceContainer);
     }
 }
