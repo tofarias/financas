@@ -1,0 +1,15 @@
+{
+    "name": "tiago/financas",
+    "authors": [
+        {
+            "name": "Tiago Farias",
+            "email": "tiago.farias.poa@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload":{
+        "psr-4":{
+            "Fin\\":"src/"
+        }
+    }
+}
