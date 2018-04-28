@@ -3,7 +3,6 @@
 namespace Fin;
 
 use Fin\Plugins\PluginInterface;
-use Xtreamwayz\Pimple\Container;
 
 class Application
 {
@@ -11,7 +10,7 @@ class Application
 
     public function __construct(ServiceContainerInterface $serviceContainer)
     {
-        $this->serviceContainer = new Container;
+        $this->serviceContainer = $serviceContainer;
     }
 
     public function service($name)
@@ -31,5 +30,19 @@ class Application
     public function plugin(PluginInterface $plugin): void
     {
         $plugin->register($this->serviceContainer);
+    }
+
+    public function get($path, $action, string $name = null ){
+
+        $routing = $this->service('routing');
+        $routing->get($name, $path, $action);
+        return $this;
+    }
+
+    public function start()
+    {
+        $route = $this->service('route');
+        $callable = $route->handler;
+        $callable();
     }
 }

@@ -6,8 +6,9 @@ use Aura\Router\RouterContainer;
 use Fin\ServiceContainerInterface;
 use Psr\Http\Message\RequestInterface;
 use Interop\Container\Containerinterface;
+use Zend\Diactoros\ServerRequestFactory;
 
-class RoutePlugin
+class RoutePlugin implements PluginInterface
 {
     public function register(ServiceContainerInterface $container)
     {
