@@ -6,7 +6,7 @@ return [
         'host' => 'localhost',
         'database' => 'financas',
         'username' => 'root',
-        'password' => 'root',
+        'password' => '123',
         'charset' => 'utf8',
         'collation' => 'utf8_unicode_ci'
     ]
