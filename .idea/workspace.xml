@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7464de1c-0f48-4987-bdfd-cab4a7e9ba9c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/config/db.php" afterPath="$PROJECT_DIR$/config/db.php" />
       <change beforePath="$PROJECT_DIR$/db/migrations/20180428172936_create_category_costs.php" afterPath="$PROJECT_DIR$/db/migrations/20180428172936_create_category_costs.php" />
-      <change beforePath="$PROJECT_DIR$/phinx.php" afterPath="$PROJECT_DIR$/phinx.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,17 +37,27 @@
         <entry file="file://$PROJECT_DIR$/phinx.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
-              <caret line="5" column="5" lean-forward="true" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+              <caret line="5" column="5" lean-forward="false" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="20180428172936_create_category_costs.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="20180428172936_create_category_costs.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/migrations/20180428172936_create_category_costs.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="4" />
+            <state relative-caret-position="153">
+              <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CategoryCostsSeeder.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/db/seeds/CategoryCostsSeeder.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="29" column="12" lean-forward="false" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -81,6 +89,7 @@
         <option value="$PROJECT_DIR$/config/db.php" />
         <option value="$PROJECT_DIR$/phinx.php" />
         <option value="$PROJECT_DIR$/db/migrations/20180428172936_create_category_costs.php" />
+        <option value="$PROJECT_DIR$/db/seeds/CategoryCostsSeeder.php" />
       </list>
     </option>
   </component>
@@ -154,6 +163,12 @@
               <item name="db" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="migrations" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+            <path>
+              <item name="financas" type="b2602c69:ProjectViewProjectNode" />
+              <item name="financas" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="db" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="seeds" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -191,12 +206,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1524933598347</updated>
-      <workItem from="1524933599711" duration="5083000" />
+      <workItem from="1524933599711" duration="5816000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5083000" />
+    <option name="totallyTimeSpent" value="5816000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
@@ -292,15 +307,23 @@
     <entry file="file://$PROJECT_DIR$/phinx.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="5" column="5" lean-forward="true" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+          <caret line="5" column="5" lean-forward="false" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/migrations/20180428172936_create_category_costs.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="4" />
+        <state relative-caret-position="153">
+          <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/seeds/CategoryCostsSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="12" lean-forward="false" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
           <folding />
         </state>
       </provider>
