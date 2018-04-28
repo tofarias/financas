@@ -6,7 +6,9 @@
             "email": "tiago.farias.poa@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "xtreamwayz/pimple-container-interop": "^1.0"
+    },
     "autoload":{
         "psr-4":{
             "Fin\\":"src/"
