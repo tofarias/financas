@@ -8,6 +8,7 @@ $app = new \Fin\Application( $serviceContainer );
 $app->plugin( new \Fin\Plugins\RoutePlugin() );
 $app->plugin( new \Fin\Plugins\ViewPlugin() );
 $app->plugin( new \Fin\Plugins\DbPlugin() );
+$app->plugin( new \Fin\Plugins\AuthPlugin() );
 
 $app->get('/home/{name}/{id}', function(\Psr\Http\Message\RequestInterface $request){
     $response = new \Zend\Diactoros\Response();
@@ -17,5 +18,6 @@ $app->get('/home/{name}/{id}', function(\Psr\Http\Message\RequestInterface $requ
 
 require_once __DIR__.'/../src/controllers/category-costs.php';
 require_once __DIR__.'/../src/controllers/users.php';
+require_once __DIR__.'/../src/controllers/auth.php';
 
 $app->start();
