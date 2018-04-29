@@ -74,4 +74,17 @@ class Application
         $emitter = new SapiEmitter();
         $emitter->emit( $response );
     }
+
+    public function redirect(string $path)
+    {
+        return new \Zend\Diactoros\Response\RedirectResponse($path);
+    }
+
+    public function route(string $name, Array $params = [])
+    {
+        $generator = $this->service('routing.generator');
+        $path = $generator->generate($name,$params);
+
+        return $this->redirect($path);
+    }
 }

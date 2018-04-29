@@ -22,21 +22,21 @@ $app->get('/category-costs', function() use ($app){
 
     $view = $app->service('view.renderer');
     return $view->render('category-costs/list.html.twig', compact('categories'));
-});
+}, 'category-costs.list');
 
 $app->get('/category-costs/new', function() use ($app){
 
     $view = $app->service('view.renderer');
     return $view->render('category-costs/create.html.twig');
-});
+}, 'category-costs.new');
 
-$app->post('/category-costs/store', function(\Psr\Http\Message\ServerRequestInterface $request){
+$app->post('/category-costs/store', function(\Psr\Http\Message\ServerRequestInterface $request) use ($app){
 
     $data = $request->getParsedBody();
 
     \Fin\Models\CategoryCosts::create( $data );
 
-    return new \Zend\Diactoros\Response\RedirectResponse('/category-costs');
-});
+    return $app->route('category-costs.list');
+}, 'category-costs.store');
 
 $app->start();
