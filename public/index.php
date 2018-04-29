@@ -39,4 +39,28 @@ $app->post('/category-costs/store', function(\Psr\Http\Message\ServerRequestInte
     return $app->route('category-costs.list');
 }, 'category-costs.store');
 
+$app->get('/category-costs/{id}/edit', function(\Psr\Http\Message\ServerRequestInterface $request) use ($app){
+
+    $view = $app->service('view.renderer');
+
+
+    $categoryCosts = new \Fin\Models\CategoryCosts();
+    $category = $categoryCosts->findOrFail( $request->getAttribute('id') );
+
+    return $view->render('category-costs/edit.html.twig', compact('category'));
+}, 'category-costs.edit');
+
+$app->post('/category-costs/{id}/update', function(\Psr\Http\Message\ServerRequestInterface $request) use ($app){
+
+    $id = $request->getAttribute('id');
+
+    $categoryCosts = new \Fin\Models\CategoryCosts();
+    $category = $categoryCosts->findOrFail( $id );
+    $data = $request->getParsedBody();
+    $category->fill($data);
+    $category->save();
+
+    return $app->route('category-costs.list');
+}, 'category-costs.update');
+
 $app->start();
