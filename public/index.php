@@ -7,7 +7,7 @@ $app = new \Fin\Application( $serviceContainer );
 
 $app->plugin( new \Fin\Plugins\RoutePlugin() );
 $app->plugin( new \Fin\Plugins\ViewPlugin() );
-
+$app->plugin( new \Fin\Plugins\DbPlugin() );
 
 $app->get('/home/{name}/{id}', function(\Psr\Http\Message\RequestInterface $request){
     $response = new \Zend\Diactoros\Response();

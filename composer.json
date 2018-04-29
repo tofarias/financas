@@ -10,7 +10,8 @@
         "xtreamwayz/pimple-container-interop": "^1.0",
         "aura/router": "^3.1",
         "zendframework/zend-diactoros": "^1.7",
-        "twig/twig": "^2.4"
+        "twig/twig": "^2.4",
+        "illuminate/database": "^5.6"
     },
     "autoload":{
         "psr-4":{
