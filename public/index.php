@@ -24,4 +24,19 @@ $app->get('/category-costs', function() use ($app){
     return $view->render('category-costs/list.html.twig', compact('categories'));
 });
 
+$app->get('/category-costs/new', function() use ($app){
+
+    $view = $app->service('view.renderer');
+    return $view->render('category-costs/create.html.twig');
+});
+
+$app->post('/category-costs/store', function(\Psr\Http\Message\ServerRequestInterface $request){
+
+    $data = $request->getParsedBody();
+
+    \Fin\Models\CategoryCosts::create( $data );
+
+    return new \Zend\Diactoros\Response\RedirectResponse('/category-costs');
+});
+
 $app->start();

@@ -42,6 +42,13 @@ class Application
         return $this;
     }
 
+    public function post($path, $action, string $name = null ){
+
+        $routing = $this->service('routing');
+        $routing->post($name, $path, $action);
+        return $this;
+    }
+
     public function start()
     {
         $route = $this->service('route');
