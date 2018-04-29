@@ -8,12 +8,16 @@ $app->get('/login', function() use ($app){
 
 $app->post('/login', function(\Psr\Http\Message\ServerRequestInterface $request) use ($app){
 
-    $app->service('auth')->login();
+    $view = $app->service('view.renderer');
+    $auth = $app->service('auth');
 
-    /*$data = $request->getParsedBody();
+    $data = $request->getParsedBody();
 
-    $repository = $app->service('user.repository');
-    $repository->create( $data );
+    $result = $auth->login($data);
 
-    return $app->route('users.list');*/
+    if( !$result ){
+        return $view->render('auth/login.html.twig');
+    }
+
+    return $app->route('category-costs.list');
 }, 'auth.login');

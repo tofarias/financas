@@ -9,7 +9,7 @@ interface RepositoryInterface
 
     public function find(int $id, bool $failIfNotExists = true);
 
-    public function findByField(string $field, $value) : Array;
+    public function findByField(string $field, $value);
 
     public function create(Array $data);
 

@@ -4,6 +4,8 @@ namespace Fin\Plugins;
 
 use Fin\ServiceContainerInterface;
 use Fin\View\ViewRender;
+
+use Fin\View\Twig\TwigGlobals;
 use Interop\Container\Containerinterface;
 
 class ViewPlugin implements PluginInterface
@@ -15,6 +17,10 @@ class ViewPlugin implements PluginInterface
             $twig = new \Twig_Environment($loader);
 
             $generator = $container->get('routing.generator');
+
+            $auth = $container->get('auth');
+
+            $twig->addExtension( new TwigGlobals($auth) );
 
             $twig->addFunction( new \Twig_SimpleFunction('route', function(string $name, Array $params = []) use ($generator){
 
