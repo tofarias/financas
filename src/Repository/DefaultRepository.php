@@ -21,9 +21,9 @@ class DefaultRepository implements RepositoryInterface
         return $this->model->all()->toArray();
     }
 
-    public function find(int $id)
+    public function find(int $id, bool $failIfNotExists = true)
     {
-        return $this->model->findOrFail($id);
+        return $failIfNotExists ? $this->model->findOrFail($id) : $this->model->find($id);
     }
 
     public function create(Array $data)
@@ -45,5 +45,10 @@ class DefaultRepository implements RepositoryInterface
     {
         $model = $this->model->find( $id );
         $model->delete();
+    }
+
+    public function findByField(string $field, $value): Array
+    {
+        return $this->model->where($field, '=', $value)->toArray();
     }
 }

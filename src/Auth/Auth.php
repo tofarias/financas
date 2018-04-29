@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: tiago
- * Date: 29/04/18
- * Time: 12:18
- */
 
 namespace Fin\Auth;
 
