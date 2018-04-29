@@ -16,5 +16,6 @@ $app->get('/home/{name}/{id}', function(\Psr\Http\Message\RequestInterface $requ
 });
 
 require_once __DIR__.'/../src/controllers/category-costs.php';
+require_once __DIR__.'/../src/controllers/users.php';
 
 $app->start();
