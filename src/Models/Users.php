@@ -3,8 +3,9 @@
 namespace Fin\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Jasny\Auth\User as JasnyAuthUser;
 
-class Users extends Model
+class Users extends Model implements JasnyAuthUser
 {
     protected $table = 'users';
 

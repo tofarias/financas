@@ -11,4 +11,6 @@ interface AuthInterface
     public function check() : bool;
 
     public function logout() : void;
+
+    public function hashPassword(string $password) : string;
 }

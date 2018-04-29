@@ -2,12 +2,19 @@
 
 namespace Fin\Auth;
 
-
 class Auth implements AuthInterface
 {
+    private $jasnyAuth;
+
+    public function __construct(JasnyAuth $jasnyAuth)
+    {
+        $this->jasnyAuth = $jasnyAuth;
+    }
+
     public function login(Array $credentials): bool
     {
-        // TODO: Implement login() method.
+        list('email' => $email, 'password' => $password) = $credentials;
+        return $this->jasnyAuth->login($email, $password) !== null;
     }
 
     public function check(): bool
@@ -18,5 +25,10 @@ class Auth implements AuthInterface
     public function logout(): void
     {
         // TODO: Implement logout() method.
+    }
+
+    public function hashPassword(string $password): string
+    {
+        return $this->jasnyAuth->hashPassword($password);
     }
 }
