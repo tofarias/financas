@@ -63,4 +63,26 @@ $app->post('/category-costs/{id}/update', function(\Psr\Http\Message\ServerReque
     return $app->route('category-costs.list');
 }, 'category-costs.update');
 
+$app->get('/category-costs/{id}/show', function(\Psr\Http\Message\ServerRequestInterface $request) use ($app){
+
+    $view = $app->service('view.renderer');
+    $id = $request->getAttribute('id');
+    #die($id);
+    $categoryCosts = new \Fin\Models\CategoryCosts();
+    $category = $categoryCosts->findOrFail( $id );
+
+    return $view->render('category-costs/show.html.twig', compact('category'));
+}, 'category-costs.show');
+
+$app->get('/category-costs/{id}/delete', function(\Psr\Http\Message\ServerRequestInterface $request) use ($app){
+
+
+    $id = $request->getAttribute('id');
+    $categoryCosts = new \Fin\Models\CategoryCosts();
+    $category = $categoryCosts->findOrFail( $id );
+    $category->delete();
+
+    return $app->route('category-costs.list');
+}, 'category-costs.delete');
+
 $app->start();
