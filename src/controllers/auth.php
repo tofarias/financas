@@ -6,6 +6,13 @@ $app->get('/login', function() use ($app){
     return $view->render('auth/login.html.twig');
 }, 'auth.show_login_form');
 
+$app->get('/logout', function() use ($app){
+
+    $auth = $app->service('auth')->logout();
+
+    return $app->route('auth.show_login_form');
+}, 'auth.logout');
+
 $app->post('/login', function(\Psr\Http\Message\ServerRequestInterface $request) use ($app){
 
     $view = $app->service('view.renderer');
