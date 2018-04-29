@@ -4,6 +4,8 @@ namespace Fin;
 
 use Fin\Plugins\PluginInterface;
 use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
+use Zend\Diactoros\Response\SapiEmitter;
 
 class Application
 {
@@ -56,6 +58,13 @@ class Application
         }
 
         $callable = $route->handler;
-        $callable( $request );
+        $response = $callable( $request );
+        $this->emitResponse( $response );
+    }
+
+    public function emitResponse(ResponseInterface $response)
+    {
+        $emitter = new SapiEmitter();
+        $emitter->emit( $response );
     }
 }

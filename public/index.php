@@ -8,16 +8,14 @@ $app = new \Fin\Application( $serviceContainer );
 $app->plugin( new \Fin\Plugins\RoutePlugin() );
 
 $app->get('/', function(Psr\Http\Message\RequestInterface $request){
-    var_dump( $request->getUri() );
+    #getUri() );
     echo 'Ok';
 });
 
-$app->get('/home/{name}/{id}', function(Psr\Http\Message\RequestInterface $request){
-    echo 'Home';
-    echo "<br>";
-    echo $request->getAttribute('name');
-    echo "<br>";
-    echo $request->getAttribute('id');
+$app->get('/home/{name}/{id}', function(\Psr\Http\Message\RequestInterface $request){
+    $response = new \Zend\Diactoros\Response();
+    $response->getBody()->write('response do Diactoros');
+    return $response;
 });
 
 $app->start();
