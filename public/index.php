@@ -16,8 +16,12 @@ $app->get('/home/{name}/{id}', function(\Psr\Http\Message\RequestInterface $requ
 });
 
 $app->get('/category-costs', function() use ($app){
+
+    $categoryCosts = new \Fin\Models\CategoryCosts();
+    $categories = $categoryCosts->all();
+
     $view = $app->service('view.renderer');
-    return $view->render('category-costs/list.html.twig');
+    return $view->render('category-costs/list.html.twig', compact('categories'));
 });
 
 $app->start();
