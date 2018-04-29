@@ -3,6 +3,7 @@
 namespace Fin;
 
 use Fin\Plugins\PluginInterface;
+use Psr\Http\Message\RequestInterface;
 
 class Application
 {
@@ -42,7 +43,19 @@ class Application
     public function start()
     {
         $route = $this->service('route');
+        $request = $this->service(RequestInterface::class);
+
+        if( !$route ){
+            echo 'Page not found!';
+            exit;
+        }
+
+        foreach( $route->attributes as $key => $value )
+        {
+            $request = $request->withAttribute($key,$value);
+        }
+
         $callable = $route->handler;
-        $callable();
+        $callable( $request );
     }
 }
