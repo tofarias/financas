@@ -6,6 +6,7 @@ use Fin\Repository\RepositoryFactory;
 use Fin\ServiceContainerInterface;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Psr\Container\ContainerInterface;
+use Fin\Models\BillReceive;
 
 class DbPlugin implements PluginInterface
 {
@@ -24,6 +25,10 @@ class DbPlugin implements PluginInterface
 
         $container->addLazy('user.repository', function(ContainerInterface $container) {
             return $container->get('repository.factory')->factory(\Fin\Models\Users::class);
+        });
+
+        $container->addLazy('bill-receive.repository', function(ContainerInterface $container) {
+            return $container->get('repository.factory')->factory(BillReceive::class);
         });
     }
 }
