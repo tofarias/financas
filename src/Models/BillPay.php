@@ -18,6 +18,6 @@ class BillPay extends Model
 
     public function categoryCost()
     {
-        return $this->belongsTo(CategoryCost::class);
+        return $this->belongsTo(CategoryCosts::class);
     }
 }

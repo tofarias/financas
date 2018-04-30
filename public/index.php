@@ -19,6 +19,7 @@ $app->get('/home/{name}/{id}', function(\Psr\Http\Message\RequestInterface $requ
 
 require_once __DIR__.'/../src/controllers/category-costs.php';
 require_once __DIR__.'/../src/controllers/bill-receives.php';
+require_once __DIR__.'/../src/controllers/bill-pays.php';
 require_once __DIR__.'/../src/controllers/users.php';
 require_once __DIR__.'/../src/controllers/auth.php';
 
