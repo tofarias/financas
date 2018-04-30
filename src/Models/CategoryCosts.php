@@ -9,6 +9,7 @@ class CategoryCosts extends Model
     protected $table = 'category_costs';
 
     protected $fillable = [
-        'name'
+        'name',
+        'user_id'
     ];
 }
