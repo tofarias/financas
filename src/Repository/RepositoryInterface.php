@@ -11,9 +11,11 @@ interface RepositoryInterface
 
     public function findByField(string $field, $value);
 
+    public function findOneBy(Array $search);
+
     public function create(Array $data);
 
-    public function update(int $id, Array $data);
+    public function update($id, Array $data);
 
-    public function delete(int $id);
+    public function delete($id);
 }
