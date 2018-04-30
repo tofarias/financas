@@ -35,5 +35,7 @@ class DbPlugin implements PluginInterface
         $container->addLazy('bill-pay.repository', function(ContainerInterface $container) {
             return $container->get('repository.factory')->factory(BillPay::class);
         });
+
+        //statement.repository
     }
 }
