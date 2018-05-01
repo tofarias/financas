@@ -4,6 +4,7 @@ namespace Fin\Plugins;
 
 use Fin\Models\BillPay;
 use Fin\Repository\RepositoryFactory;
+use Fin\Repository\StatementRepository;
 use Fin\ServiceContainerInterface;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Psr\Container\ContainerInterface;
@@ -34,6 +35,10 @@ class DbPlugin implements PluginInterface
 
         $container->addLazy('bill-pay.repository', function(ContainerInterface $container) {
             return $container->get('repository.factory')->factory(BillPay::class);
+        });
+
+        $container->addLazy('statement.repository', function() {
+            return new StatementRepository();
         });
 
         //statement.repository
