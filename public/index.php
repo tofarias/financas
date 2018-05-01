@@ -3,6 +3,11 @@
 require_once __DIR__.'/../vendor/autoload.php';
 require_once __DIR__.'/../src/helpers.php';
 
+if( file_exists(__DIR__.'/../.env') ){
+    $dotEnv = new \Dotenv\Dotenv(__DIR__.'/../');
+    $dotEnv->overload();
+}
+
 $serviceContainer = new \Fin\ServiceContainer();
 $app = new \Fin\Application( $serviceContainer );
 

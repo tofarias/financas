@@ -18,7 +18,7 @@ class DbPlugin implements PluginInterface
     {
         $capsule = new Capsule();
         $config = include __DIR__.'/../../config/db.php';
-        $capsule->addConnection($config['development']);
+        $capsule->addConnection($config['default_connection']);
         $capsule->bootEloquent();
 
         $container->add('repository.factory', new RepositoryFactory());
@@ -42,7 +42,5 @@ class DbPlugin implements PluginInterface
         $container->addLazy('statement.repository', function() {
             return new StatementRepository();
         });
-
-        //statement.repository
     }
 }
