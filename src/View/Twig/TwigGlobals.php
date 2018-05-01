@@ -3,7 +3,6 @@
 namespace Fin\View\Twig;
 
 use Fin\Auth\AuthInterface;
-use Fin\View\Twig;
 
 class TwigGlobals extends \Twig_Extension implements \Twig_Extension_GlobalsInterface
 {

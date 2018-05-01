@@ -36,14 +36,16 @@ class Application
         $plugin->register($this->serviceContainer);
     }
 
-    public function get($path, $action, string $name = null ){
+    public function get($path, $action, string $name = null )
+    {
 
         $routing = $this->service('routing');
         $routing->get($name, $path, $action);
         return $this;
     }
 
-    public function post($path, $action, string $name = null ){
+    public function post($path, $action, string $name = null )
+    {
 
         $routing = $this->service('routing');
         $routing->post($name, $path, $action);
@@ -61,7 +63,7 @@ class Application
         foreach( $this->befores as $callback )
         {
             $result = $callback($this->service(RequestInterface::class));
-            if( $result instanceof ResponseInterface ){
+            if($result instanceof ResponseInterface ) {
                 return $result;
             }
         }
@@ -74,26 +76,26 @@ class Application
         $route = $this->service('route');
         $request = $this->service(RequestInterface::class);
 
-        if( !$route ){
+        if(!$route ) {
             echo 'Page not found!';
             exit;
         }
 
         foreach( $route->attributes as $key => $value )
         {
-            $request = $request->withAttribute($key,$value);
+            $request = $request->withAttribute($key, $value);
         }
 
         $result = $this->runBefores();
 
-        if( $result ){
+        if($result ) {
             $this->emitResponse($result);
             return;
         }
 
         $callable = $route->handler;
-        $response = $callable( $request );
-        $this->emitResponse( $response );
+        $response = $callable($request);
+        $this->emitResponse($response);
 
         return;
     }
@@ -101,7 +103,7 @@ class Application
     public function emitResponse(ResponseInterface $response) : void
     {
         $emitter = new SapiEmitter();
-        $emitter->emit( $response );
+        $emitter->emit($response);
 
         return;
     }
@@ -114,7 +116,7 @@ class Application
     public function route(string $name, Array $params = []) : ResponseInterface
     {
         $generator = $this->service('routing.generator');
-        $path = $generator->generate($name,$params);
+        $path = $generator->generate($name, $params);
 
         return $this->redirect($path);
     }

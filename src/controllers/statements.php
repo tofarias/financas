@@ -19,7 +19,7 @@ $app
             : \DateTime::createFromFormat('d/m/Y', $dateEnd)->format('Y-m-d');
 
             $statements = $repository->all($dateStart, $dateEnd, $auth->user()->getId());
-            #var_dump($statements);exit;
+            // var_dump($statements);exit;
             return $view->render(
                 'statements.html.twig', compact('statements')
             );
